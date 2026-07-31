@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f2efe6">
+    <meta name="description" content="AIに聞く前の12分。仮説、根拠、反証、判断更新を鍛えるインタラクティブな思考workout。">
+    <meta name="release" content="shiko-tairyoku-v1">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="思考体力室 — AIに聞く前の12分">
+    <meta property="og:description" content="答えではなく、答えに至る体力を鍛える。">
+    <meta property="og:url" content="https://omr175.github.io/shiko-tairyoku/">
+    <meta name="twitter:card" content="summary">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+    <title>思考体力室 — AIに聞く前の12分</title>
+    <link rel="canonical" href="https://omr175.github.io/shiko-tairyoku/">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body data-theme="light">
+    <a class="skip-link" href="#workout">workoutへ移動</a>
+
+    <header class="topbar">
+      <a class="wordmark" href="#top" aria-label="思考体力室 ホーム">
+        <span class="wordmark-jp">思考体力室</span>
+        <span class="wordmark-en">THINKING STAMINA ROOM</span>
+      </a>
+      <div class="topbar-meta" aria-label="サイト情報">
+        <span id="today-label">TODAY</span>
+        <span>GUEST / LOCAL</span>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">
+          <span aria-hidden="true">L/D</span>
+          <span class="sr-only">表示テーマを切り替える</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span>SESSION 001</span><span>DECISION UNDER LOAD</span></p>
+          <h1 id="hero-title">AIに聞く前の、<em>12分。</em></h1>
+          <p class="hero-lead">
+            答えを速く出す練習ではない。自分の仮説を置き、根拠を仕分け、
+            一番痛い反論を持ち上げ、判断を更新するための小さなジム。
+          </p>
+          <div class="hero-actions">
+            <button class="primary-action" id="start-workout" type="button">
+              本日のメニューを始める
+              <span aria-hidden="true">→</span>
+            </button>
+            <p><strong>NO LOGIN</strong><br>入力は外へ送信されません</p>
+          </div>
+        </div>
+
+        <aside class="session-ticket" aria-label="本日のトレーニング内容">
+          <div class="ticket-head">
+            <span>ADMIT ONE</span>
+            <strong>12 MIN</strong>
+          </div>
+          <p class="ticket-number" aria-label="セッション番号 001">001</p>
+          <ol class="menu-list">
+            <li><span>01</span><b>COMMIT</b><small>先に判断する</small></li>
+            <li><span>02</span><b>SIGNAL</b><small>根拠を仕分ける</small></li>
+            <li><span>03</span><b>COUNTERWEIGHT</b><small>反論を持ち上げる</small></li>
+            <li><span>04</span><b>REVISION</b><small>判断を更新する</small></li>
+          </ol>
+          <div class="ticket-foot">
+            <span>NOT AN IQ TEST</span>
+            <span>EST. 2026</span>
+          </div>
+        </aside>
+      </section>
+
+      <section class="gym-floor" id="workout" aria-labelledby="workout-title" hidden>
+        <aside class="round-rail" aria-label="workout進行状況">
+          <p class="rail-label">FLOOR / A</p>
+          <ol id="round-list">
+            <li data-round="0"><span>01</span> COMMIT</li>
+            <li data-round="1"><span>02</span> SIGNAL</li>
+            <li data-round="2"><span>03</span> COUNTER</li>
+            <li data-round="3"><span>04</span> REVISE</li>
+            <li data-round="4"><span>05</span> RECORD</li>
+          </ol>
+          <div class="progress-track" aria-hidden="true"><span id="progress-bar"></span></div>
+          <p id="progress-text">ROUND 1 / 5</p>
+        </aside>
+
+        <div class="workout-shell">
+          <div class="workout-heading">
+            <p class="eyebrow"><span>ACTIVE WORKOUT</span><span id="round-duration">02 MIN</span></p>
+            <h2 id="workout-title" tabindex="-1">判断をラックに置く</h2>
+          </div>
+          <div id="workout-panel" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="manifesto" aria-labelledby="manifesto-title">
+        <p class="section-index">WHY THIS ROOM EXISTS / 001</p>
+        <div>
+          <h2 id="manifesto-title">賢さではなく、<br><em>更新できること。</em></h2>
+        </div>
+        <div class="manifesto-copy">
+          <p>
+            この場所が数えるのは、正解した回数だけではない。自分の確信を数字にし、
+            不都合な根拠を見つけ、強い反論を受け止め、必要なら考えを変えた回数だ。
+          </p>
+          <p>
+            AIは答えを出す選手ではなく、荷重を返すspotterとして使う。
+            今日の記録はIQでも才能でもない。今日、実際に行った思考のrepだけ。
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>思考体力室 / PUBLIC CANARY 01</p>
+      <p>NO ACCOUNT · NO ANALYTICS · NO EXTERNAL AI</p>
+    </footer>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
