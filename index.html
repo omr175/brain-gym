@@ -3,117 +3,132 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#f2efe6">
-    <meta name="description" content="AIに聞く前の12分。仮説、根拠、反証、判断更新を鍛えるインタラクティブな思考workout。">
-    <meta name="release" content="shiko-tairyoku-v1">
+    <meta name="theme-color" content="#f8f1dd">
+    <meta name="description" content="AIに聞く前の12分。判断で道を選び、推論の霧を晴らし、反論ボスへ挑むthinking adventure。">
+    <meta name="release" content="brain-gym-v2">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="思考体力室 — AIに聞く前の12分">
-    <meta property="og:description" content="答えではなく、答えに至る体力を鍛える。">
-    <meta property="og:url" content="https://omr175.github.io/shiko-tairyoku/">
-    <meta name="twitter:card" content="summary">
+    <meta property="og:title" content="BRAIN GYM — 思考の霧を、自力で晴らせ。">
+    <meta property="og:description" content="答えをもらう前に、自分の判断でQUEST 001を進めよう。">
+    <meta property="og:url" content="https://omr175.github.io/brain-gym/">
+    <meta property="og:image" content="https://omr175.github.io/brain-gym/assets/og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://omr175.github.io/brain-gym/assets/og.png">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
-    <title>思考体力室 — AIに聞く前の12分</title>
-    <link rel="canonical" href="https://omr175.github.io/shiko-tairyoku/">
+    <title>BRAIN GYM — QUEST 001</title>
+    <link rel="canonical" href="https://omr175.github.io/brain-gym/">
     <link rel="stylesheet" href="./styles.css">
   </head>
   <body data-theme="light">
-    <a class="skip-link" href="#workout">workoutへ移動</a>
+    <a class="skip-link" href="#workout">QUESTへ移動</a>
 
-    <header class="topbar">
-      <a class="wordmark" href="#top" aria-label="思考体力室 ホーム">
-        <span class="wordmark-jp">思考体力室</span>
-        <span class="wordmark-en">THINKING STAMINA ROOM</span>
+    <header class="topbar" id="top">
+      <a class="wordmark" href="#top" aria-label="BRAIN GYM ホーム">
+        <span>BRAIN</span><span>GYM</span>
       </a>
+      <p class="club-label">THINKING ADVENTURE CLUB</p>
       <div class="topbar-meta" aria-label="サイト情報">
         <span id="today-label">TODAY</span>
-        <span>GUEST / LOCAL</span>
+        <span>PLAYER 01</span>
         <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">
-          <span aria-hidden="true">L/D</span>
+          <span aria-hidden="true">DAY / NIGHT</span>
           <span class="sr-only">表示テーマを切り替える</span>
         </button>
       </div>
     </header>
 
-    <main id="top">
+    <main>
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow"><span>SESSION 001</span><span>DECISION UNDER LOAD</span></p>
-          <h1 id="hero-title">AIに聞く前の、<em>12分。</em></h1>
+          <p class="kicker"><span>PUBLIC QUEST</span><b>001</b></p>
+          <h1 id="hero-title">思考の霧を、<br><em>自力で晴らせ。</em></h1>
           <p class="hero-lead">
-            答えを速く出す練習ではない。自分の仮説を置き、根拠を仕分け、
-            一番痛い反論を持ち上げ、判断を更新するための小さなジム。
+            AIが答えを出す前に、自分で道を選ぶ。根拠を見分け、いちばん重い反論と戦い、
+            必要なら判断を更新して帰還する。これはテストではなく、12分の冒険だ。
           </p>
+          <div class="mission-tags" aria-label="QUEST情報">
+            <span><b>12</b> MIN</span>
+            <span><b>5</b> STAGES</span>
+            <span><b>0</b> LOGIN</span>
+          </div>
           <div class="hero-actions">
-            <button class="primary-action" id="start-workout" type="button">
-              本日のメニューを始める
-              <span aria-hidden="true">→</span>
+            <button class="quest-button" id="start-workout" type="button">
+              <span>QUEST 001 に出発</span>
+              <b aria-hidden="true">➜</b>
             </button>
-            <p><strong>NO LOGIN</strong><br>入力は外へ送信されません</p>
+            <p>LOCAL PLAY ONLY<br>回答は外へ送られません</p>
           </div>
         </div>
 
-        <aside class="session-ticket" aria-label="本日のトレーニング内容">
-          <div class="ticket-head">
-            <span>ADMIT ONE</span>
-            <strong>12 MIN</strong>
+        <aside class="map-card" aria-label="QUEST 001 ルートマップ">
+          <div class="map-card-head">
+            <span>MISTY DECISION PASS</span>
+            <b>LOAD / STANDARD</b>
           </div>
-          <p class="ticket-number" aria-label="セッション番号 001">001</p>
-          <ol class="menu-list">
-            <li><span>01</span><b>COMMIT</b><small>先に判断する</small></li>
-            <li><span>02</span><b>SIGNAL</b><small>根拠を仕分ける</small></li>
-            <li><span>03</span><b>COUNTERWEIGHT</b><small>反論を持ち上げる</small></li>
-            <li><span>04</span><b>REVISION</b><small>判断を更新する</small></li>
+          <ol class="route-map">
+            <li class="route-node node-camp is-open"><b>1</b><span>BASE CAMP<small>判断を置く</small></span></li>
+            <li class="route-node node-fork"><b>2</b><span>THE FORK<small>根拠を分ける</small></span></li>
+            <li class="route-node node-fog"><b>3</b><span>FOG FIELD<small>推論を見抜く</small></span></li>
+            <li class="route-node node-boss"><b>4</b><span>HEAVY PASS<small>反論ボス</small></span></li>
+            <li class="route-node node-goal"><b>5</b><span>RETURN GATE<small>判断を更新</small></span></li>
           </ol>
-          <div class="ticket-foot">
-            <span>NOT AN IQ TEST</span>
-            <span>EST. 2026</span>
+          <div class="map-legend">
+            <span><i class="legend-dot open"></i> OPEN</span>
+            <span><i class="legend-dot fog"></i> FOG</span>
+            <span><i class="legend-dot boss"></i> BOSS</span>
           </div>
+          <p class="scout-callout"><b>SCOUT NOTE</b> あなたの入力が、マップを動かす。</p>
         </aside>
       </section>
 
+      <section class="game-rules" aria-label="このQUESTの遊び方">
+        <article><span>01 / MOVE</span><h2>先に決める</h2><p>AIの答えを見る前に、現在の判断と確信度を置く。</p></article>
+        <article><span>02 / BATTLE</span><h2>霧と戦う</h2><p>事実、推論、未知を仕分け、最重量の反論を選ぶ。</p></article>
+        <article><span>03 / RETURN</span><h2>更新して帰る</h2><p>変える・変えないを選び直し、今日のrepを持ち帰る。</p></article>
+      </section>
+
       <section class="gym-floor" id="workout" aria-labelledby="workout-title" hidden>
-        <aside class="round-rail" aria-label="workout進行状況">
-          <p class="rail-label">FLOOR / A</p>
+        <aside class="round-rail" aria-label="QUEST進行状況">
+          <div class="rail-head"><span>QUEST 001</span><b id="progress-text">STAGE 1 / 5</b></div>
           <ol id="round-list">
-            <li data-round="0"><span>01</span> COMMIT</li>
-            <li data-round="1"><span>02</span> SIGNAL</li>
-            <li data-round="2"><span>03</span> COUNTER</li>
-            <li data-round="3"><span>04</span> REVISE</li>
-            <li data-round="4"><span>05</span> RECORD</li>
+            <li data-round="0"><span>01</span><b>CAMP</b><small>COMMIT</small></li>
+            <li data-round="1"><span>02</span><b>FORK</b><small>SIGNAL</small></li>
+            <li data-round="2"><span>03</span><b>FOG</b><small>COUNTER</small></li>
+            <li data-round="3"><span>04</span><b>BOSS</b><small>REVISE</small></li>
+            <li data-round="4"><span>05</span><b>GATE</b><small>RECORD</small></li>
           </ol>
           <div class="progress-track" aria-hidden="true"><span id="progress-bar"></span></div>
-          <p id="progress-text">ROUND 1 / 5</p>
+          <p class="rail-rule">NO IQ SCORE<br>ONLY TODAY'S REPS</p>
         </aside>
 
         <div class="workout-shell">
+          <div class="game-hud">
+            <div><small>CURRENT ZONE</small><strong id="zone-label">BASE CAMP</strong></div>
+            <div><small>QUEST XP</small><strong id="xp-label">000</strong></div>
+            <div><small>TIME</small><strong id="round-duration">02 MIN</strong></div>
+          </div>
           <div class="workout-heading">
-            <p class="eyebrow"><span>ACTIVE WORKOUT</span><span id="round-duration">02 MIN</span></p>
-            <h2 id="workout-title" tabindex="-1">判断をラックに置く</h2>
+            <p class="kicker"><span>ACTIVE QUEST</span><b id="stage-code">STAGE 01</b></p>
+            <h2 id="workout-title" tabindex="-1">判断をキャンプに置く</h2>
           </div>
           <div id="workout-panel" aria-live="polite"></div>
         </div>
       </section>
 
-      <section class="manifesto" aria-labelledby="manifesto-title">
-        <p class="section-index">WHY THIS ROOM EXISTS / 001</p>
+      <section class="field-guide" aria-labelledby="guide-title">
+        <div class="guide-stamp" aria-hidden="true"><span>NOT</span><b>IQ</b><span>TEST</span></div>
         <div>
-          <h2 id="manifesto-title">賢さではなく、<br><em>更新できること。</em></h2>
+          <p class="kicker"><span>FIELD GUIDE</span><b>RULE 01</b></p>
+          <h2 id="guide-title">強さは、<br>正解より<em>更新</em>に出る。</h2>
         </div>
-        <div class="manifesto-copy">
-          <p>
-            この場所が数えるのは、正解した回数だけではない。自分の確信を数字にし、
-            不都合な根拠を見つけ、強い反論を受け止め、必要なら考えを変えた回数だ。
-          </p>
-          <p>
-            AIは答えを出す選手ではなく、荷重を返すspotterとして使う。
-            今日の記録はIQでも才能でもない。今日、実際に行った思考のrepだけ。
-          </p>
+        <div class="guide-copy">
+          <p>ここで数えるのは才能ではない。根拠を見分けた回数、重い反論から逃げなかった回数、理由を残して判断し直した回数だ。</p>
+          <p>間違いはHPを減らさない。霧が残るだけ。見直して、もう一度ルートへ戻ればいい。</p>
         </div>
       </section>
     </main>
 
     <footer>
-      <p>思考体力室 / PUBLIC CANARY 01</p>
+      <p>BRAIN GYM / PUBLIC QUEST 001</p>
       <p>NO ACCOUNT · NO ANALYTICS · NO EXTERNAL AI</p>
     </footer>
 

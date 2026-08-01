@@ -135,6 +135,7 @@ export function calculateRecord(input) {
   const confidenceDelta = Number(input.finalConfidence) - Number(input.initialConfidence);
   const stanceChanged = input.initialStance !== input.finalStance;
   const meaningfulUpdate = stanceChanged || Math.abs(confidenceDelta) >= 10;
+  const revisionComplete = String(input.revisionNote ?? "").trim().length >= 12;
 
   let updateLabel = "立場と確信度を維持";
   if (stanceChanged) updateLabel = "判断を更新";
@@ -147,23 +148,34 @@ export function calculateRecord(input) {
     confidenceDelta,
     stanceChanged,
     meaningfulUpdate,
+    revisionComplete,
     updateLabel,
     repCount:
-      signals.correct + Number(counterweight.accepted) + Number(meaningfulUpdate),
+      signals.correct + Number(counterweight.accepted) + Number(revisionComplete),
     maxReps: signals.total + 2,
     initialStanceLabel: STANCES[input.initialStance],
     finalStanceLabel: STANCES[input.finalStance],
   };
 }
 
+export function calculateQuestXp(record) {
+  return (
+    200 +
+    record.signals.correct * 80 +
+    Number(record.counterweight.accepted) * 160 +
+    Number(record.revisionComplete) * 80
+  );
+}
+
 export function buildRecordText(record, dateLabel) {
   const direction = record.confidenceDelta > 0 ? "+" : "";
   return [
-    `思考体力室 / ${dateLabel}`,
+    `BRAIN GYM / QUEST 001 / ${dateLabel}`,
+    `QUEST XP ${calculateQuestXp(record)}`,
     `根拠の仕分け ${record.signals.correct}/${record.signals.total}`,
     `反証 ${record.counterweight.accepted ? "最重量を選択" : "再ラック"}`,
     `判断 ${record.initialStanceLabel} → ${record.finalStanceLabel}`,
     `確信度 ${direction}${record.confidenceDelta}pt / ${record.updateLabel}`,
-    "IQではなく、今日行った思考のrep。",
+    "IQではなく、今日のQUESTで行った思考のrep。",
   ].join("\n");
 }

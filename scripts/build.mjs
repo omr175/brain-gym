@@ -7,12 +7,14 @@ const dist = resolve(root, "dist");
 
 await rm(dist, { recursive: true, force: true });
 await mkdir(resolve(dist, "src"), { recursive: true });
+await mkdir(resolve(dist, "assets"), { recursive: true });
 
 for (const file of ["index.html", "styles.css", "app.js"]) {
   await cp(resolve(root, file), resolve(dist, file));
 }
 
 await cp(resolve(root, "src", "logic.mjs"), resolve(dist, "src", "logic.mjs"));
+await cp(resolve(root, "assets", "og.png"), resolve(dist, "assets", "og.png"));
 await writeFile(resolve(dist, ".nojekyll"), "");
 
 console.log("Built static site in dist/");

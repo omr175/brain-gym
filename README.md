@@ -1,7 +1,7 @@
-# 思考体力室
+# BRAIN GYM
 
-AIに聞く前の12分。仮説、確信度、根拠分類、反証、判断更新を一つのworkoutとして
-体験するpublic canaryです。
+AIに聞く前の12分。判断でルートを選び、根拠を仕分けて霧を晴らし、反論ボスへ挑み、
+判断更新で帰還するthinking adventureのpublic canaryです。
 
 ## Product boundary
 
@@ -27,4 +27,4 @@ npm run check
 
 ## Public site
 
-<https://omr175.github.io/shiko-tairyoku/>
+<https://omr175.github.io/brain-gym/>

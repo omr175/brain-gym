@@ -4,6 +4,7 @@ import assert from "node:assert/strict";
 import {
   SESSION,
   buildRecordText,
+  calculateQuestXp,
   calculateRecord,
   evaluateCounterweight,
   evaluateSignals,
@@ -43,11 +44,32 @@ test("record rewards evidence handling and meaningful revision without an IQ sco
     finalConfidence: 55,
     signalAnswers,
     counterweightChoice: "security-evidence",
+    revisionNote: "反論を受け、限定試験へ判断を更新した。",
   });
 
   assert.equal(record.repCount, 7);
   assert.equal(record.maxReps, 7);
   assert.equal(record.stanceChanged, true);
+  assert.equal(record.revisionComplete, true);
   assert.equal(record.updateLabel, "判断を更新");
+  assert.equal(calculateQuestXp(record), 840);
+  assert.match(buildRecordText(record, "2026/08/01"), /BRAIN GYM/);
   assert.match(buildRecordText(record, "2026/08/01"), /IQではなく/);
+});
+
+test("quest XP rewards completed actions without rewarding stance change itself", () => {
+  const record = calculateRecord({
+    initialStance: "pilot",
+    finalStance: "pilot",
+    initialConfidence: 55,
+    finalConfidence: 55,
+    signalAnswers: {},
+    counterweightChoice: "speed",
+    revisionNote: "反論を確認したが、限定試験という判断は維持する。",
+  });
+
+  assert.equal(record.meaningfulUpdate, false);
+  assert.equal(record.revisionComplete, true);
+  assert.equal(record.repCount, 1);
+  assert.equal(calculateQuestXp(record), 280);
 });
